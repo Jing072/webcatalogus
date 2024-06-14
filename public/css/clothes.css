@@ -1,0 +1,190 @@
+:root {
+    --border-box: 2px solid navy;
+    --font-family: Arial, Helvetica, sans-serif;
+    --backgound-color-box: rgb(42, 42, 133);
+    --text-color-box: white;
+}
+
+/* CSS voor alle pagina's */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    text-decoration: none;
+}
+
+.header {
+    border: var(--border-box);
+    grid-area: hdr;
+}
+
+.main {
+    grid-area: main;
+}
+
+.right-sidebar {
+    border: var(--border-box);
+    grid-area: rsb;
+    /* Dit zorgt ervoor dat het element is verborgen, maar het neemt nog steeds ruimte in */
+    visibility: hidden;
+}
+
+.left-sidebar {
+    border: var(--border-box);
+    grid-area: lsb;
+    /* Dit zorgt ervoor dat het element is verborgen, maar het neemt nog steeds ruimte in */
+    visibility: hidden;
+}
+
+.footer {
+    border: var(--border-box);
+    grid-area: ftr;
+    font-size: medium;
+}
+
+/* CSS voor de navigatie */
+.flex-nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 10px 20px 10px;
+    font-size: large;
+    background-color: var(--backgound-color-box);
+    position: sticky;
+    position: -webkit-sticky;
+}
+
+ul>a:link,
+a:visited,
+a:hover,
+a:active {
+    color: var(--text-color-box);
+}
+
+ul>a {
+    padding: 10px;
+    margin: 20px;
+    text-decoration: none;
+}
+
+/* CSS voor de categorie pagina */
+.card-link {
+    border: var(--border-box);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    padding: 5px;
+}
+
+.card-link>.card>button {
+    padding: 5px;
+    margin-top: auto;
+    text-decoration: none;
+}
+
+/* CSS voor de cards */
+.hoodie-container,
+.tshirt-container,
+.jeans-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.card {
+    border:  var(--border-box);
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+}
+
+.card>h2 {
+    background-color: var(--backgound-color-box);
+    color: var(--text-color-box);
+}
+
+.card>.content>p {
+    margin-top: 10px;
+}
+
+.card>.content>img {
+    width: 50%;
+}
+
+/* Media query voor mobiel */
+@media screen and (max-width:767px) {
+    body {
+        margin: 0px 10px 0px 10px;
+    }
+
+    img {
+        width: 70%;
+    }
+
+    .wrapper {
+        text-align: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas:
+        "hdr hdr hdr hdr hdr hdr hdr hdr"
+        "lsb main main main main main main rsb"
+        "ftr ftr ftr ftr ftr ftr ftr ftr"
+        ;
+    }
+
+    .container {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(1fr);
+    }
+}
+
+/* Media query voor tablet */
+@media screen and (min-width:768px) and (max-width:1023px) {
+    img {
+        width: 60%;
+    }
+
+    .wrapper {
+        text-align: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas:
+            "hdr hdr hdr hdr hdr hdr hdr hdr"
+            "lsb main main main main main main rsb"
+            "ftr ftr ftr ftr ftr ftr ftr ftr"
+        ;
+    }
+
+    .container {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Media query voor desktop */
+@media screen and (min-width:1024px) {
+    .wrapper {
+        text-align: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas:
+            "hdr hdr hdr hdr hdr hdr hdr hdr"
+            "lsb main main main main main main rsb"
+            "ftr ftr ftr ftr ftr ftr ftr ftr"
+        ;
+    }
+
+    .container {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

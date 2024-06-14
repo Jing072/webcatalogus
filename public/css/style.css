@@ -1,0 +1,207 @@
+:root {
+    --border-box: 2px solid navy;
+    --font-family: Arial, Helvetica, sans-serif;
+    --backgound-color-box: rgb(42, 42, 133);
+    --text-color-box: white;
+}
+
+/* CSS voor alle pagina's */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.home-content {
+    text-align: center;
+    padding-top: 60px;
+    font-size: medium;
+    color: var(--text-color-box);
+}
+
+.text {
+    text-align: center;
+    padding: 25px;
+}
+
+.header {
+    grid-area: hdr;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    border: var(--border-box);
+    grid-area: ftr;
+}
+
+/* CSS voor de navigatie */
+.flex-nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 10px 20px 10px;
+    font-size: large;
+    background-color: var(--backgound-color-box);
+}
+
+ul>a:link,
+a:visited,
+a:hover,
+a:active {
+    color: var(--text-color-box);
+}
+
+ul>a {
+    padding: 10px;
+    margin: 20px;
+    text-decoration: none;
+}
+
+/* CSS voor de home pagina */
+.background-image {
+    background-image: url(../img/wallpaper2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 345px;
+}
+
+/* CSS voor het formulier */
+.form {
+    margin: auto;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+.form li + li {
+    /* geldt dus niet voor de eerste li */
+    margin-top: 10px;
+}
+
+li {
+    display: flex;
+}
+
+label {
+    /* maakt ze even breed en rechts uitgelijnd */
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+input,textarea {
+    display: flex;
+    align-items: right;
+    font: 16px;
+    text-align: left;
+    width: 200px;
+    border: 1px solid #ccc;
+}
+
+button {
+    font-weight: bold;    
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* Media query voor mobiel */
+@media screen and (max-width:430px) {
+    .wrapper {
+        text-align: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+        "hdr"
+        "main"
+        "ftr"
+        ;
+    }
+}
+
+/* Media query voor tablet */
+@media screen and (min-width:431px) and (max-width:768px) {
+    .wrapper {
+        text-align: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+        "hdr hdr"
+        "main main"
+        "ftr ftr"
+        ;
+    }
+
+    .home-content {
+        text-align: center;
+        padding-top: 160px;
+        color: var(--text-color-box);
+    }
+    
+    .text {
+        text-align: center;
+        font-size: large;
+        padding: 25px;
+    }
+
+    .background-image {
+        background-image: url(../img/wallpaper2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 415px;
+    }
+}
+
+/* Media query voor desktop */
+@media screen and (min-width:769px) {
+    .wrapper {
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "hdr hdr hdr"
+            "main main main"
+            "ftr ftr ftr"
+        ;
+    }
+
+    .home-content {
+        text-align: center;
+        padding-top: 180px;
+        color: var(--text-color-box);
+    }
+    
+    .text {
+        text-align: center;
+        font-size: x-large;
+        padding: 35px;
+    }
+
+    .background-image {
+        background-image: url(../img/wallpaper2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 635px;
+    }
+}
